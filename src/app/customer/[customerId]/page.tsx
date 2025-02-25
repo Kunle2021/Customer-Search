@@ -1,6 +1,10 @@
 import viewCustomer from "@/app/requests/viewCustomer";
 import { redirect } from 'next/navigation'
 import { revalidatePath } from 'next/cache'
+import { CustomerForm} from '@/app/forms/customerForm'
+import { CustomerSearchForm } from "@/app/forms/customerSearchForm";
+import Image from "next/image";
+
 //Will probably need to redirect back 
 
 // export async function getServerSideProps() {
@@ -30,9 +34,20 @@ export default async function CustomerDetails({params,}:
   
     return (
         <div className="py-4">
+          <div className="pl-8">
+              <div><Image
+                          src="/MB.png"
+                          width={300}
+                          height={300}
+                          alt="MB Logo"
+                        />
+                      </div>
+          </div>
           <div className="p-8">
-            <h1 className="mb-6 text-3xl font-bold">View Customer: {customerId}</h1>
-            <div>{customer.Firstname}</div>
+            <h1 className="mb-6 text-3xl font-bold">Customer Search</h1>
+            {/* <div>{customer.Firstname}</div> */}
+            {/* <customerSearchForm customer ={customer}/> */}
+            <CustomerSearchForm customer ={customer}/>
           </div>
         </div>
         
